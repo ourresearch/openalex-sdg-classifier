@@ -1,8 +1,5 @@
 import boto3
-import io
-import h5py
 import tempfile
-import requests
 from nltk import tokenize
 from transformers import BertTokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
