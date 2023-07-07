@@ -1,5 +1,8 @@
 import boto3
+import io
+import h5py
 import tempfile
+import requests
 from nltk import tokenize
 from transformers import BertTokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
@@ -12,13 +15,10 @@ tokenizer = BertTokenizer.from_pretrained('bert-base-multilingual-uncased')
 
 # Load the ML model from s3
 s3 = boto3.client('s3')
-fp = tempfile.TemporaryFile()
-s3.download_fileobj('aurora-sdg-classifier', 'sdgs_multiclass_16.h5', fp)
-fp.seek(0)
-model = load_model(fp, custom_objects={'TFBertMainLayer': TFBertModel})
+fp = tempfile.NamedTemporaryFile()
+s3.download_file('aurora-sdg-classifier', 'sdgs_multiclass_16.h5', fp.name)
+model = load_model(fp.name, custom_objects={'TFBertMainLayer': TFBertModel})
 fp.close()
-
-serving_base_url = 'http://sdg-serving-{}:8501/v1'
 
 goal_names = {
     "Goal 1": "No poverty",
