@@ -13,7 +13,7 @@ tokenizer = BertTokenizer.from_pretrained('bert-base-multilingual-uncased')
 # Load the ML model from s3
 s3 = boto3.client('s3')
 fp = tempfile.NamedTemporaryFile()
-s3.download_file('aurora-sdg-classifier', 'aurora_multilabel_v5.h5', fp.name)
+s3.download_file('aurora-sdg-classifier', 'sdg_elsevier_16.h5', fp.name)
 model = load_model(fp.name, custom_objects={'TFBertMainLayer': TFBertModel})
 fp.close()
 
