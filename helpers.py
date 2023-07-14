@@ -130,7 +130,7 @@ def get_predictions(abstract):
     response = []
     for index, sdg_value in enumerate(predictions[0]):
         sdg_number = index + 1
-        sdg_id = 'http://metadata.un.org/sdg/' + str(sdg_number)
+        sdg_id = 'https://metadata.un.org/sdg/' + str(sdg_number)
         sdg_label = 'Goal ' + str(sdg_number)
         sdg_name = goal_names[sdg_label]
         response.append(
