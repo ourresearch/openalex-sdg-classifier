@@ -4,10 +4,10 @@ from helpers import get_predictions
 app = Flask(__name__)
 
 
-@app.route('/classify/', methods=['GET'])
+@app.route('/classify/', methods=['POST'])
 def classify():
     # use the param 'text' to get the text to classify
-    text = request.args.get('text')
+    text = request.json.get('text', None)
     if not text:
         return jsonify({"msg": "Missing 'text' in request data"}), 400
 
