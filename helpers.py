@@ -126,7 +126,7 @@ def get_predictions(abstract):
     input_ids, masks = prepare_input(abstracts=abstracts)
 
     # Assuming your model takes two inputs
-    predictions = model.predict([input_ids, masks])
+    predictions = model([input_ids, masks])
     response = []
     for index, sdg_value in enumerate(predictions[0]):
         sdg_number = index + 1
