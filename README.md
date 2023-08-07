@@ -1,7 +1,7 @@
 ### OpenAlex SDG Classifier
 
-This API uses Elsevier SDG queries and an Aurora machine learning model to map UN sustainable development goals to works.
+This API uses Aurora SDG queries and an Aurora machine learning model to map UN sustainable development goals to works.
 
-Elsevier SDG queries: https://elsevier.digitalcommonsdata.com/datasets/6bjy52jkm9/1
+Aurora SDG queries: https://aurora-network-global.github.io/sdg-queries/
 
-Model source: https://zenodo.org/record/7095784
+Model source: https://zenodo.org/record/7304547
