@@ -7,6 +7,9 @@ from tensorflow.keras.models import load_model
 import tensorflow as tf
 from tensorflow import convert_to_tensor
 from transformers import TFBertModel
+from dotenv import load_dotenv
+
+load_dotenv('./.env')
 
 tokenizer = BertTokenizer.from_pretrained('bert-base-multilingual-uncased')
 
